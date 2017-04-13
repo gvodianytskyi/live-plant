@@ -1,7 +1,6 @@
 # live-plant
 
-Application **live-plant** helps to control plant watering process in different locations.
-Works good on desktop and mobile.
+Application **live-plant** helps to control plant watering process in different locations. Design is responsive, so it looks good on mobile devices too.
 
 To use the application you need to have **angular**, **angular-ui-router** and **angular-messages**. 
 
