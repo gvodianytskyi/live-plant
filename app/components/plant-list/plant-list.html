@@ -1,0 +1,42 @@
+<section class="section">
+    <h2 class="section__header section__header_decor optional">Your beautiful plants</h2>
+    <div class="gv-table gv-table_decor material-shadow">
+        <div class="gv-table__row gv-table__row_header">
+            <div class="gv-table__cell">Name</div>
+            <div class="gv-table__cell">Location</div>
+            <div class="gv-table__cell optional">Watered</div>
+            <div class="gv-table__cell"></div>
+        </div>
+        <div class="gv-table__row"
+             ng-repeat="item in $ctrl.plants | orderBy: 'watered'"
+             ng-class="{'gv-table__row_red': $ctrl.needToBeWatered(item),
+                        'gv-table__row_regular': !$ctrl.needToBeWatered(item)}">
+            <div class="gv-table__cell gv-table__cell_regular">
+                <a class="link link_water">
+                    <span ng-click="$ctrl.water(item.id)" class="glyphicon glyphicon-tint" title="Water"></span>
+                </a>
+                {{item.name}}
+            </div>
+            <div class="gv-table__cell gv-table__cell_regular">
+                <a class="link link_underline"
+                   ng-click="$ctrl.navigate('locationPlants', {locationId: item.locationId})">
+                    {{$ctrl.getLocation(item.locationId)}}
+                </a>
+            </div>
+            <div class="gv-table__cell gv-table__cell_regular optional">
+                {{item.watered | date: 'yyyy-MM-dd'}}
+            </div>
+            <div class="gv-table__cell gv-table__cell_regular">
+                <div class="block__link_icon right">
+                    <a class="link link_icon">
+                        <span ng-click="$ctrl.edit(item.id)" class="glyphicon glyphicon-pencil" title="Edit"></span>
+                    </a>
+                    <a class="link link_icon">
+                        <span ng-click="$ctrl.remove(item.id)" class="glyphicon glyphicon-remove" title="Remove"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="button button_blue material-shadow" ng-click="$ctrl.navigate('addPlant')">ADD PLANT</button>
+</section>

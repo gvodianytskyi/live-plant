@@ -1,0 +1,39 @@
+<div class="wrapper">
+    <header class="header header_decor"
+            ng-class="{active: $ctrl.active}">
+        <span class="menu-icon" ng-click="$ctrl.changeMenuState()">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </span>
+        <h1 class="header__title header__title_decor">
+            {{$ctrl.header}}
+        </h1>
+    </header>
+    <div class="column-wrapper">
+        <aside class="aside column" ng-class="{active: $ctrl.active}">
+            <nav class="navigation navigation_decor">
+                <ul class="navigation__list">
+                    <li class="navigation__list-item navigation__list-item_decor"
+                        ui-sref-active="active">
+                        <a class="link"
+                           ng-click="$ctrl.changeMenuState()"
+                           ui-sref="home">Plants</a>
+                    </li>
+                    <li class="navigation__list-item navigation__list-item_decor"
+                        ui-sref-active="active">
+                        <a class="link"
+                           ng-click="$ctrl.changeMenuState()"
+                           ui-sref="locations">Locations</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main column"
+              ng-click="$ctrl.hideMenu()"
+              ng-class="{active: $ctrl.active}">
+            <div>
+                <div ui-view></div>
+            </div>
+        </main>
+        <aside class="aside optional"></aside>
+    </div>
+</div>

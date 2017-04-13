@@ -1,0 +1,27 @@
+<form class="form form_margin" name="locationForm" novalidate>
+    <div class="form-group"
+         ng-class="{ 'has-error' :
+            locationForm.name.$invalid && !locationForm.name.$pristine }">
+        <label>Location name</label>
+        <input class="input form-control"
+               name="name"
+               ng-model="$ctrl.location" required>
+        <div ng-messages="locationForm.name.$error"
+             ng-if="locationForm.name.$invalid && !locationForm.name.$pristine"
+             role="alert">
+            <span class="error help-block" ng-message="required">Location name is required!</span>
+        </div>
+    </div>
+
+    <div class="form-group button_group">
+        <button class="button button_blue"
+                ng-disabled="locationForm.$invalid"
+                ng-if="!$ctrl.isEditMode()"
+                ng-click="$ctrl.addNewLocation($ctrl.location)">Add</button>
+        <button class="button button_blue"
+                ng-disabled="locationForm.$invalid"
+                ng-if="$ctrl.isEditMode()"
+                ng-click="$ctrl.save($ctrl.location)">Save</button>
+        <button class="button button_blue" ng-click="$ctrl.cancel()">Cancel</button>
+    </div>
+</form>

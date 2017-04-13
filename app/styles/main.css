@@ -1,0 +1,171 @@
+.wrapper {
+    position: relative;
+    background-color: #edeef0;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.header, .navigation, .main {
+    font-family: Helvetica;
+}
+
+.aside {
+    width: 20%;
+    background-color: #edeef0;
+    font-size: 1.1em;
+}
+
+.navigation_decor {
+    margin: 20px;
+}
+
+.navigation__list {
+    /*float: right;*/
+}
+
+.navigation__list-item_decor {
+    margin-bottom: 10px;
+}
+
+.navigation__list-item_decor.active .link {
+    border-bottom: 1px dashed;
+}
+
+.main {
+    height: 100vh;
+    width: 60%;
+    background-color: #edeef0;
+}
+
+.header {
+    display: table;
+    background-color: #507299;
+    height: 50px;
+    width: 100%;
+    color: white;
+}
+
+.header_decor {
+    padding: 0 0 0 20px;
+}
+
+.header__title {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 1.5em;
+}
+
+.menu-icon {
+    display: none;
+}
+
+.header__title_decor {
+    margin: 0 0 0 0px;
+}
+
+.section__header {
+    font-size: 1.2em;
+}
+
+.section__header_decor {
+    margin: 10px 0 10px 0;
+}
+
+.table {
+    width: 80%;
+    background-color: white;
+}
+
+.material-shadow {
+    -webkit-box-shadow: 0px 0px 1px 0px rgba(107,143,184,1);
+    -moz-box-shadow: 0px 0px 1px 0px rgba(107,143,184,1);
+    box-shadow: 0px 0px 1px 0px rgba(107,143,184,1);
+}
+
+.table__row:hover {
+    background-color: #f5f7fa;
+}
+
+.column-wrapper {
+    display: table;
+    width: 100%;
+}
+
+.column {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.input, .select {
+    width: 100%;
+    height: 40px;
+}
+
+.btn {
+    min-width: 80px;
+}
+
+.button {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    border:none;
+}
+
+.button_blue {
+    background-color: #507299;
+    color: #ffffff;
+}
+
+.button_blue:disabled {
+    background-color: #7ba3d1;
+    cursor: not-allowed;
+}
+
+.button_group .button {
+    width: 49%;
+}
+
+.button_group {
+    text-align:center;
+}
+
+.link:link,
+.link:hover,
+.link:active,
+.link:visited {
+    color: #2a5885;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.link_underline:hover {
+    text-decoration: dashed;
+}
+
+.link_icon {
+    color: white;
+    margin: 0 0 0 5px;
+}
+
+.block__link_icon {
+    margin: 0 20px 0 0;
+}
+
+.table__row:hover .link_icon {
+    color: #6089ba;
+}
+
+.right {
+    float: right;
+}
+
+.form_margin {
+    margin: 15px 0 0 0;
+}
+
+@media screen and (max-width: 720px) {
+    .optional {
+        display: none;
+    }
+}

@@ -1,0 +1,52 @@
+.aside {
+    position: absolute;
+    left: -115px;
+    top: 0;
+    height: 100%;
+    z-index: 100;
+    width: 115px;
+    background-color: #edeef0;
+}
+
+.aside.active {
+    left: 0;
+}
+
+.header.active, .main.active {
+    left: 115px;
+}
+
+.main, .header {
+    position:relative;
+    left: 0;
+    width: 100%;
+}
+
+.aside, .main, .header {
+    -webkit-transition: left .5s;
+    -moz-transition: left .5s;
+    -o-transition: left .5s;
+    transition: left .5s;
+}
+
+.header {
+    height: 40px;
+    font-size: .5em;
+}
+
+.header_decor {
+    padding: 0 0 0 10px;
+}
+
+.menu-icon {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 2em;
+    width: 20px;
+    cursor: pointer;
+}
+
+.table {
+    width: 100%;
+}
+

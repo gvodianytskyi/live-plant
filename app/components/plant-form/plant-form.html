@@ -1,0 +1,83 @@
+<form class="form form_margin" name="plantForm" novalidate>
+    <div class="form-group" ng-class="{ 'has-error' : plantForm.name.$invalid && !plantForm.name.$pristine }">
+        <label>Plant name</label>
+        <input class="input form-control"
+               name="name"
+               type="text"
+               ng-model="$ctrl.plant.name" required>
+        <div ng-messages="plantForm.name.$error"
+             ng-if="plantForm.name.$invalid && !plantForm.name.$pristine"
+             role="alert">
+            <span class="error help-block" ng-message="required">Plant name is required!</span>
+        </div>
+    </div>
+
+    <div class="form-group" >
+        <label>Location</label>
+        <select class="select form-control"
+                ng-options="location.name for location in $ctrl.locations track by location.id"
+                ng-model="$ctrl.plant.location"></select>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : plantForm.minFrequency.$invalid && !plantForm.minFrequency.$pristine }">
+        <label>Watering frequency (min days)</label>
+        <input class="input form-control"
+               name="minFrequency"
+               type="number"
+               min="0"
+               max="{{$ctrl.plant.maxFrequency || Number.MAX_SAFE_INTEGER }}"
+               ng-model="$ctrl.plant.minFrequency" required>
+        <div ng-messages="plantForm.minFrequency.$error"
+             ng-if="plantForm.minFrequency.$invalid && !plantForm.minFrequency.$pristine"
+             role="alert">
+            <span class="error help-block" ng-message="required">Watering frequency is required!</span>
+            <span class="error help-block" ng-message="number">Watering frequency should be a number!</span>
+            <span class="error help-block" ng-message="max">Min watering frequency should not be more than {{$ctrl.plant.maxFrequency}}!</span>
+            <span class="error help-block" ng-message="min">Min watering frequency should be more than 0!</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : plantForm.maxFrequency.$invalid && !plantForm.maxFrequency.$pristine }">
+        <label>Watering frequency (max days)</label>
+        <input class="input form-control"
+               name="maxFrequency"
+               type="number"
+               min="{{$ctrl.plant.minFrequency || 0}}"
+               ng-model="$ctrl.plant.maxFrequency" required>
+        <div ng-messages="plantForm.maxFrequency.$error"
+             ng-if="plantForm.maxFrequency.$invalid && !plantForm.maxFrequency.$pristine"
+             role="alert">
+            <span class="error help-block" ng-message="required">Watering frequency is required!</span>
+            <span class="error help-block" ng-message="number">Watering frequency should be a number!</span>
+            <span class="error help-block" ng-message="min">Min watering frequency should more than {{$ctrl.plant.minFrequency || 0}}!</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : plantForm.date.$invalid && !plantForm.date.$pristine }">
+        <label>Last watering date</label>
+        <input class="input form-control"
+               name="date"
+               type="date"
+               ng-model="$ctrl.plant.watered"
+               water-date
+               required>
+        <div ng-messages="plantForm.date.$error"
+             ng-if="plantForm.date.$invalid && !plantForm.date.$pristine"
+             role="alert">
+            <span class="error help-block" ng-message="required">Watering date is required!</span>
+            <span class="error help-block" ng-message="waterDate">Watering date cannot be from future!</span>
+        </div>
+    </div>
+
+    <div class="form-group button_group">
+        <button class="button button_blue"
+                ng-disabled="plantForm.$invalid"
+                ng-if="!$ctrl.isEditMode()"
+                ng-click="$ctrl.addNewPlant($ctrl.plant);">Add</button>
+        <button class="button button_blue"
+                ng-disabled="plantForm.$invalid"
+                ng-if="$ctrl.isEditMode()"
+                ng-click="$ctrl.save($ctrl.plant);">Save</button>
+        <button class="button button_blue" ng-click="$ctrl.cancel()">Cancel</button>
+    </div>
+</form>
